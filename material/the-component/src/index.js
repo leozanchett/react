@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MultilineComponents } from './multiline-jsx'
+import { Owl } from './variable-atributeIn-jsx'
 
 class MyComponentClass extends React.Component {
     render() {
@@ -8,6 +9,7 @@ class MyComponentClass extends React.Component {
             <div>
                 <h1>Hello world</h1>
                 <MultilineComponents/>
+                <Owl/>
             </div>
         )
     }
