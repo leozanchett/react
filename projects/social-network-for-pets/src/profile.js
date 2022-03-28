@@ -56,4 +56,8 @@ export class Profile extends React.Component {
       </div>
     );
   }
+
+  componentWillUnmount() {
+    cancelFetch(this.fetchID);
+  }
 }

@@ -46,7 +46,6 @@ const FAKE_USER_DATA = {
    }
  
    const fetch = new Fetch();
- 
    const delay = Math.floor(Math.random() * 1000) + 500;
    const timeout = setTimeout(() => {
      timeoutByFetchId.delete(fetch._id);
