@@ -4,6 +4,7 @@ import React from 'react';
 import { Greeting } from './greeting';
 import { PropsDisplayer } from './propsDisplayer';
 import { List } from './props-children';
+import { Button } from './default-props';
 
 
 class App extends React.Component {
@@ -19,6 +20,7 @@ class App extends React.Component {
         <List type='Living Cat Musician'>
           <li>Nora the Piano Cat</li>
         </List>
+        <Button/>
       </div>
     );
   }
