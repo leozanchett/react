@@ -9,9 +9,9 @@ class MyComponentClass extends React.Component {
         return (
             <div>
                 <h1>Hello world</h1>
-                <MultilineComponents/>
-                <Owl/>
-                <Friend/>
+                <MultilineComponents />
+                <Owl />
+                <Friend />
             </div>
         )
     }
