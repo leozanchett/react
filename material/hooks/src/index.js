@@ -19,11 +19,11 @@ const NewFriend = (props) => {
 }
 
 function Toggle() {
-  const [toggle, setToggle] = useState();
+  const [toggle, setToggle] = useState('On');
 
   return (
     <div>
-      <p>The toggle is {toggle || setToggle('On')}</p>
+      <p>The toggle is {toggle}</p>
       <button onClick={() => setToggle("On")}>On</button>
       <button onClick={() => setToggle("Off")}>Off</button>
     </div>
@@ -32,9 +32,9 @@ function Toggle() {
 
 function ColorPicker() {
   // call useState and assign its return values to `color` and `setColor`
-  const [color, setColor] = useState();
+  const [color, setColor] = useState('yellow');
   const divStyle = {
-    backgroundColor: color || setColor('yellow')
+    backgroundColor: color
   };
 
   return (
