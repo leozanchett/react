@@ -16,7 +16,9 @@ const animals = {
   export let hide;
   const hideFacts = () =>{
     hide = !hide;
-    return hide;
+    let doc = document.getElementById('background');
+    console.log(doc);
+    doc.hidden = hide;
   };
 
   export const imgArrayAnimais =  () => { 
@@ -37,11 +39,7 @@ const animals = {
 }
 
 const displayFacts = (e) => {
-  
-  //console.log(hide);
-  if(hide){
-    const fact = animals[e.target.alt].facts[Math.floor(Math.random() * 3)];
-    document.getElementById('fact').innerHTML = fact;
-  }
+  const fact = animals[e.target.alt].facts[Math.floor(Math.random() * 3)];
+  document.getElementById('fact').innerHTML = fact;
   hideFacts();
 }

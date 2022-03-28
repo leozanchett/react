@@ -12,8 +12,7 @@ const animalFacts = (
         <div className='animals'>
             {imgArrayAnimais()}
         </div>
-        {console.log(hide)}
-        { hide && <p id='fact'></p> }
+        <p id='fact'></p> 
    </div>
 );
 
