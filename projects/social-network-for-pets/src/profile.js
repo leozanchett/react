@@ -26,6 +26,13 @@ export class Profile extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.username !== this.props.username) {
+      cancelFetch(this.fetchID);
+      this.loadUserData();
+    }
+  }
+
   render() {
     let isLoading = this.state.userData === null;
 
