@@ -2,60 +2,75 @@ import React, { useState, useEffect } from 'react';
 import { get } from './mockBackend/fetch-social-media';
 
 export default function SocialNetwork() {
-   const [data, setData] = useState(null);
-   const [menu, setMenu] = useState({});
-
+   const [menu, setMenu] = useState(null);
    useEffect(() => {
-      Promise.all([get('/menu'), get('/news-feed'), get('/friends')]).then(
-         ([menuResponse, newsFeedResponse, friendsResponse]) => {
-            setData({
-               menu: menuResponse.data,
-               newsFeed: newsFeedResponse.data,
-               friends: friendsResponse.data
-            });
-         }
-      );
+      get('/menu').then((response) => setMenu(response.data));
    }, []);
 
+   const [newsFeed, setNewsFeed] = useState(null);
    useEffect(() => {
+      get('/news-feed').then((response) => setNewsFeed(response.data));
+   });
 
-   },[]);
+   const [friends, setFriends] = useState(null);
+   useEffect(() => {
+      get('/friends').then((response) => setFriends(response.data));
+   });
+
+   const Menu = () => {
+      return (
+         !menu ? <p>Loading..</p> : (
+            <nav>
+               {menu.map((menuItem) => (
+                  <button key={menuItem}>{menuItem}</button>
+               ))}
+            </nav>
+         )
+      )
+   };
+
+   const Feed = () => {
+      return (
+         !newsFeed ? <p>Loading..</p> : (
+            <section>
+               {newsFeed.map(({ id, title, message, imgSrc }) => (
+                  <article key={id}>
+                     <h3>{title}</h3>
+                     <p>{message}</p>
+                     <img src={imgSrc} alt='' />
+                  </article>
+               ))}
+            </section>
+         )
+      )
+   }
+
+   const Friends = () => {
+      return (
+         !friends ? <p>Loading..</p> : (
+            <aside>
+               <ul>
+                  {friends
+                     .sort((a, b) => (a.isOnline && !b.isOnline ? -1 : 0))
+                     .map(({ id, name, isOnline }) => (
+                        <li key={id} className={isOnline ? 'online' : 'offline'}>
+                           {name}
+                        </li>
+                     ))}
+               </ul>
+            </aside>
+         )
+      )
+   }
+
 
    return (
       <div className='App'>
          <h1>My Network</h1>
-         {!data || !data.menu ? <p>Loading..</p> : (
-            <nav>
-               {data.menu.map((menuItem) => (
-                  <button key={menuItem}>{menuItem}</button>
-               ))}
-            </nav>
-         )}
+         <Menu />
          <div className='content'>
-            {!data || !data.newsFeed ? <p>Loading..</p> : (
-               <section>
-                  {data.newsFeed.map(({ id, title, message, imgSrc }) => (
-                     <article key={id}>
-                        <h3>{title}</h3>
-                        <p>{message}</p>
-                        <img src={imgSrc} alt='' />
-                     </article>
-                  ))}
-               </section>
-            )}
-            {!data || !data.friends ? <p>Loading..</p> : (
-               <aside>
-                  <ul>
-                     {data.friends
-                        .sort((a, b) => (a.isOnline && !b.isOnline ? -1 : 0))
-                        .map(({ id, name, isOnline }) => (
-                           <li key={id} className={isOnline ? 'online' : 'offline'}>
-                              {name}
-                           </li>
-                        ))}
-                  </ul>
-               </aside>
-            )}
+            <Feed />
+            <Friends />
          </div>
       </div>
    );
