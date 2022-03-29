@@ -5,6 +5,7 @@ import Counter from "./clean-up-effects";
 import Timer from "./control-when-effects-are-called";
 import Forecast from "./effect-hooks-fetch-data";
 import EditProfile from "./objects-in-state";
+import SocialNetwork from "./separate-hook-for-separate-effects";
 
 const App = () => {
   return (
@@ -58,7 +59,8 @@ function ColorPicker() {
 }
 
 ReactDOM.render(
-  < Forecast />,
+  < SocialNetwork />,
+  // < Forecast />,
   //<Timer/>,
   //<Counter/>,
   //<AppFunction />,
