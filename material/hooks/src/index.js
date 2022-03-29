@@ -30,9 +30,11 @@ function Toggle() {
   );
 }
 
+const colorNames = ['Aquamarine', 'BlueViolet', 'Chartreuse', 'CornflowerBlue', 'Thistle', 'SpringGreen', 'SaddleBrown', 'PapayaWhip', 'MistyRose', 'Tomato'];
+
 function ColorPicker() {
   // call useState and assign its return values to `color` and `setColor`
-  const [color, setColor] = useState('yellow');
+  const [color, setColor] = useState('Tomato');
   const divStyle = {
     backgroundColor: color
   };
@@ -40,18 +42,12 @@ function ColorPicker() {
   return (
     <div style={divStyle}>
       <p>The color is {color}</p>
-      <button onClick={() => setColor('aquamarine')}>
-        Aquamarine
-      </button>
-      <button onClick={() => setColor('blueviolet')}>
-        BlueViolet
-      </button>
-      <button onClick={() => setColor('chartreuse')}>
-        Chartreuse
-      </button>
-      <button onClick={() => setColor('cornflowerblue')}>
-        CornflowerBlue
-      </button>
+      {colorNames.map((colorName, index) => (
+        <button 
+          key={index}
+          onClick={() => setColor(colorName)}>
+          {colorName}</button>
+      ))}
     </div>
   );
 }
