@@ -12,13 +12,43 @@ export default function Forecast() {
          alert('Response: ' + JSON.stringify(response, '', 2));
          setData(response.data);
       });
-   },[forecastType]);
+   }, [forecastType]);
 
    const handleChange = (index) => ({ target }) =>
       setNotes((prev) => ({
          ...prev,
          [index]: target.value
       }));
+
+   const TableWeather = () => {
+      return (
+         <table>
+            <thead>
+               <tr>
+                  <th>Summary</th>
+                  <th>Avg Temp</th>
+                  <th>Precip</th>
+                  <th>Notes</th>
+               </tr>
+            </thead>
+            <tbody>
+               {data.map((item) => (
+                  <tr key={item.id}>
+                     <td>{item.summary}</td>
+                     <td> {item.temp.avg}°F</td>
+                     <td>{item.precip}%</td>
+                     <td>
+                        <input
+                           value={notes[item.id] || ''}
+                           onChange={handleChange(item.id)}
+                        />
+                     </td>
+                  </tr>
+               ))}
+            </tbody>
+         </table>
+      );
+   }
 
    return (
       <div className='App'>
@@ -29,31 +59,7 @@ export default function Forecast() {
          </div>
          {data === undefined ?
             <p>Loading...</p> :
-            <table>
-               <thead>
-                  <tr>
-                     <th>Summary</th>
-                     <th>Avg Temp</th>
-                     <th>Precip</th>
-                     <th>Notes</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {data.map((item, i) => (
-                     <tr key={item.id}>
-                        <td>{item.summary}</td>
-                        <td> {item.temp.avg}°F</td>
-                        <td>{item.precip}%</td>
-                        <td>
-                           <input
-                              value={notes[item.id] || ''}
-                              onChange={handleChange(item.id)}
-                           />
-                        </td>
-                     </tr>
-                  ))}
-               </tbody>
-            </table>
+            <TableWeather/>
          }
       </div>
    );
