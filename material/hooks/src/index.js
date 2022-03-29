@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from 'react-dom';
 import AppFunction from "./appFunctions";
 import Counter from "./clean-up-effects";
+import Timer from "./control-when-effects-are-called";
 import EditProfile from "./objects-in-state";
 
 const App = () => {
@@ -56,7 +57,8 @@ function ColorPicker() {
 }
 
 ReactDOM.render(
-  <Counter/>,
+  <Timer/>,
+  //<Counter/>,
   //<AppFunction />,
   //<EditProfile/>,
   //<App />,
