@@ -12,6 +12,7 @@ export default function AppFunction() {
          ((prev) => ({
             ...prev,
             [name]: value,
+            id: Date.now(),
          }))
       )
    }
@@ -21,13 +22,14 @@ export default function AppFunction() {
       if (newTask.title) {
          setTask({
             id: Date.now(),
-         })
+         });
          setAllTasks(
             ((prev) => {
                return [...prev, newTask];
             })
-         )
+         );
       }
+      setTask({});
    }
 
    const handleDelete = (id) => {
@@ -36,10 +38,6 @@ export default function AppFunction() {
             return prev.filter((task) => task.id !== id);
          })
       )
-   }
-
-   const handleCheckTasks = () => {
-      console.log(allTasks);
    }
 
    return (
@@ -54,9 +52,6 @@ export default function AppFunction() {
             allTasks={allTasks}
             handleDelete={handleDelete}
          />
-         <button onClick={handleCheckTasks}>
-            Check Tasks
-         </button>
       </main>
    );
 }

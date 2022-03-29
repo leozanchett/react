@@ -1,64 +1,87 @@
 html, body {
-   margin: 0;
-   height: 100%;
- }
- 
- body {
-   background-color: #ffffff;
-   font-family: Helvetica, Arial, sans-serif;
-   text-align: center;
- }
- 
- #app {
-   position: relative;
-   height: 100%;
-   width: 100%;
-   padding-top: 10px;
- }
- 
- #app div {
-   width: 100%;
- }
- 
- #app div div {
-   height: 100%;
- }
- 
- #app div div div {
-   position: relative;
-   height: auto;
- }
- 
- h1, h2 {
-   margin-left: 5%;
-   margin-right: 5%;
- }
- 
- button {
-   border-radius: 8px;
-   padding: 15px 32px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 16px;
-   font-family: 'Oxygen', sans-serif;
-   letter-spacing: 2px;
- }
- 
- .black {
-    color: black;
- }
- 
- .white {
-    color: white;
- }
- 
- .light-button {
-   background-color: rgba(255,255,255,0.5);
-   color: rgb(0,0,0);
- }
- 
- .dark-button {
-   background-color: rgba(0,0,0,0.5);
-   color: rgb(255,255,255);
- }
+	height: 100%;
+  background-color: #ffffff;
+  text-align: center;
+  margin: 0;
+}
+
+* {
+	font-family: Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+#app {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 8px;
+}
+
+h1 {
+  margin: 8px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+input,
+textarea {
+  padding: 5px;
+}
+
+form button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  background-color: Cornsilk;
+  border: 1px solid BurlyWood;
+  border-radius: 5px 2px;
+  margin: 8px 0;
+}
+
+li div {
+  position: relative;
+}
+
+li div button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: 0;
+  padding: 10px;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+li div button:hover,
+li div button:focus {
+  box-shadow: 0 0 1px black;
+}
+
+li h2 {
+  background-color: NavajoWhite;
+  margin: 0;
+  padding: 4px;
+}
+
+li p {
+  margin: 8px;
+}
