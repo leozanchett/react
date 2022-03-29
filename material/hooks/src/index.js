@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom';
+import AppFunction from "./appFunctions";
 import EditProfile from "./objects-in-state";
 
 const App = () => {
@@ -54,7 +55,8 @@ function ColorPicker() {
 }
 
 ReactDOM.render(
-  <EditProfile/>,
+  <AppFunction />,
+  //<EditProfile/>,
   //<App />,
   //<NewFriend src="https://content.codecademy.com/courses/React/react_photo-squid.jpg" />,
   document.getElementById('app')
