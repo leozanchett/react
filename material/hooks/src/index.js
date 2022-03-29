@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import AppFunction from "./appFunctions";
 import Counter from "./clean-up-effects";
 import Timer from "./control-when-effects-are-called";
+import Forecast from "./effect-hooks-fetch-data";
 import EditProfile from "./objects-in-state";
 
 const App = () => {
@@ -57,7 +58,8 @@ function ColorPicker() {
 }
 
 ReactDOM.render(
-  <Timer/>,
+  < Forecast />,
+  //<Timer/>,
   //<Counter/>,
   //<AppFunction />,
   //<EditProfile/>,
