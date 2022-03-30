@@ -5,6 +5,8 @@ import { Thought } from '../Thought.js';
 import { render, screen } from '@testing-library/react';
 import  '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
+import { waitFor } from '@testing-library/react'; 
+
 // import app
 import { App } from '../App.js';
 
@@ -85,4 +87,18 @@ test('Clicking the x button should remove a thought' , async () => {
    // Assert that the thought appears
    const thought = screen.getByText('Did I forget my keys?');
    expect(thought).toBeInTheDocument();
+ });
+
+
+ test('Should show Thought to be removed' , async () => {
+   render(<App/>);
+   const input = screen.getByPlaceholderText('What\'s on your mind?');
+   const submit = screen.getByText('Add');
+   userEvent.type(input, 'I have to call my mom.');
+
+   await waitFor(() => {
+      userEvent.click(submit)
+      const thought = screen.queryByText('I have to call my mom.');
+      expect(thought).toBeNull();
+   });
  });
