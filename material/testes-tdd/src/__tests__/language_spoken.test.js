@@ -6,6 +6,9 @@ import {
   getResponse
 } from "../language_spoken.js";
 
+import httpRequest from "../../../utils/__mocks__/http-request.js";
+jest.mock('../../../utils/http-request.js');
+
 test("convert array of country data objects to array of countries", ()=>{
     //arrange
     const inputObject = [
@@ -33,6 +36,14 @@ test("correctly fetches a list of countries", async  () => {
   //arrange
   const inputLanguageCode = "es";
   const expectedValue ="Argentina";
+  const resolvedValue = {
+    status: "MOCK",
+    data: [
+      {name: "Codeland", capital: "Codeacademy"},
+    ]
+  };
+  // mock the httpRequest function
+  httpRequest.mockResolvedValueOnce(resolvedValue);
   //act
   const actualValue = await countryListLookup(inputLanguageCode);
   //assertions
