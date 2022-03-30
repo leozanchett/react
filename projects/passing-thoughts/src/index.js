@@ -18,10 +18,14 @@ function App() {
     },
   ]);
 
-  const addThought = thought =>{
+  const addThought = thought => {
     setThoughts((prev) => {
       return [thought, ...prev];
     });
+  }
+
+  const removeThought = id => {
+    setThoughts(prev => prev.filter(thought => thought.id !== id));
   }
 
   return (
@@ -33,7 +37,7 @@ function App() {
         <AddThoughtForm addThought={addThought} />
         <ul className="thoughts">
           {thoughts.map((thought) => (
-            <Thought key={thought.id} thought={thought} />
+            <Thought removeThought={removeThought} key={thought.id} thought={thought} />
           ))}
         </ul>
       </main>
