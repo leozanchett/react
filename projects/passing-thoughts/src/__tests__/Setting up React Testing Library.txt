@@ -1,0 +1,14 @@
+npm install @testing-library/react --save-dev
+npm install --save-dev @testing-library/jest-dom (se necessário)
+
+/* 
+render() é uma função que podemos usar para renderizar virtualmente componentes e 
+disponibilizá-los em nossos testes de unidade. Semelhante ao ReactDOM.render(), a 
+função render() do RTL recebe JSX como argumento
+*/
+
+/*
+screen é um objeto especial que pode ser pensado como uma representação da janela do navegador. 
+Podemos garantir que nossos componentes virtualmente renderizados estejam disponíveis no teste 
+usando o método screen.debug() que imprime todo o conteúdo do DOM
+*/
