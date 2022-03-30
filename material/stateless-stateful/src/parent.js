@@ -1,5 +1,6 @@
 import React from 'react';
 import { Child } from './child';
+import { Sibling } from './sibling';
 
 export class Parent extends React.Component {
    constructor(props) {
@@ -19,7 +20,8 @@ export class Parent extends React.Component {
    render() {
       return (
          <div>
-            <Child name={this.state.name} onChange={this.changeName} />
+            <Child onChange={this.changeName} />
+            <Sibling name={this.state.name} />
          </div>
       );
    }
