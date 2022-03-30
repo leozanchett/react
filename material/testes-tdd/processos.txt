@@ -1,0 +1,10 @@
+1- instalar Jest npm install jest --save-dev
+2 - criar diretório __test__ em src/
+3 - todo arquivo que criar em __test__ deve refletir o nome de um arquivo js existente em /src/ ex: /src/hello-world.js  -> /src/__test__/hello-world.test.js
+4 - testar um arquivo individualmente npm test __tests__/language_spoken.test.js
+5 - configurar o "--coverage". No arquivo package.json adicinar a linha "scripts": {
+                                                                                    // other scripts...
+                                                                                    "test": "jest __tests__/ --coverage"
+                                                                                    }
+6 - com o --coverage configurado basta executar npm test
+                                                                               
