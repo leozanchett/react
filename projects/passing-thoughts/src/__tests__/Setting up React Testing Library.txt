@@ -1,5 +1,13 @@
 npm install @testing-library/react --save-dev
+import { render, screen } from '@testing-library/react';
+
 npm install --save-dev @testing-library/jest-dom (se necessário)
+import '@testing-library/jest-dom';
+
+Mimicking User Interactions
+npm install --save-dev @testing-library/user-event@12.0.4
+import userEvent from '@testing-library/user-event';
+
 
 /* 
 render() é uma função que podemos usar para renderizar virtualmente componentes e 
